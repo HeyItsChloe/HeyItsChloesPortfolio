@@ -26,18 +26,15 @@ export default function ProjectCard({ project }: { project: Project }) {
       onMouseLeave={handleLeave}
       className="group relative aspect-video cursor-pointer overflow-hidden rounded-md bg-[#181818] transition-transform duration-[350ms] ease-[cubic-bezier(.2,.7,.2,1)] hover:z-20 hover:scale-[1.55] hover:shadow-[0_20px_40px_rgba(0,0,0,.7),0_0_0_1px_rgba(255,255,255,.05)] first:hover:origin-left last:hover:origin-right"
     >
-      <div
-        className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 group-hover:opacity-0"
-        style={{ background: project.poster }}
-      />
+      <div className="absolute inset-0 bg-cover bg-center" style={{ background: project.poster }} />
       <video
         ref={videoRef}
-        className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-[350ms] group-hover:opacity-100"
+        className="absolute inset-0 h-full w-full object-cover"
         src={project.video}
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
       />
       <div className="absolute inset-x-3 bottom-3 font-display text-2xl tracking-wide [text-shadow:0_2px_8px_rgba(0,0,0,.7)] transition-opacity duration-300 group-hover:opacity-0">
         {project.title}
