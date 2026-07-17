@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { Link } from 'react-router-dom'
 import type { Project } from '../data/projects'
 
 export default function ProjectCard({ project }: { project: Project }) {
@@ -20,12 +21,11 @@ export default function ProjectCard({ project }: { project: Project }) {
     videoRef.current?.pause()
   }
 
-  return (
-    <article
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleLeave}
-      className="group relative aspect-video cursor-pointer overflow-hidden rounded-md bg-[#181818] transition-transform duration-[350ms] ease-[cubic-bezier(.2,.7,.2,1)] hover:z-20 hover:scale-[1.55] hover:shadow-[0_20px_40px_rgba(0,0,0,.7),0_0_0_1px_rgba(255,255,255,.05)] first:hover:origin-left last:hover:origin-right"
-    >
+  const cardClassName =
+    'group relative block aspect-video cursor-pointer overflow-hidden rounded-md bg-[#181818] transition-transform duration-[350ms] ease-[cubic-bezier(.2,.7,.2,1)] hover:z-20 hover:scale-[1.55] hover:shadow-[0_20px_40px_rgba(0,0,0,.7),0_0_0_1px_rgba(255,255,255,.05)] first:hover:origin-left last:hover:origin-right'
+
+  const content = (
+    <>
       <div className="absolute inset-0 bg-cover bg-center" style={{ background: project.poster }} />
       <video
         ref={videoRef}
@@ -85,6 +85,25 @@ export default function ProjectCard({ project }: { project: Project }) {
           </button>
         </div>
       </div>
+    </>
+  )
+
+  if (project.caseStudy) {
+    return (
+      <Link
+        to={`/case-study/${project.id}`}
+        onMouseEnter={handleEnter}
+        onMouseLeave={handleLeave}
+        className={cardClassName}
+      >
+        {content}
+      </Link>
+    )
+  }
+
+  return (
+    <article onMouseEnter={handleEnter} onMouseLeave={handleLeave} className={cardClassName}>
+      {content}
     </article>
   )
 }
