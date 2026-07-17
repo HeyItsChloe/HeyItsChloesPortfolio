@@ -33,7 +33,7 @@ export default function CaseStudyPage() {
           {project.title.replace(/^Case Study\s*—\s*/, '')}
         </h1>
 
-        <div className="mb-10 flex flex-wrap gap-2 text-xs font-medium text-[#b3b3b3]">
+        <div className="mb-6 flex flex-wrap gap-2 text-xs font-medium text-[#b3b3b3]">
           {project.tags.map((tag, i) => (
             <span key={tag} className="relative pr-2">
               {tag}
@@ -43,6 +43,15 @@ export default function CaseStudyPage() {
             </span>
           ))}
         </div>
+
+        {caseStudy.demoPath && (
+          <Link
+            to={caseStudy.demoPath}
+            className="mb-10 inline-block rounded-full bg-accent px-5 py-2.5 text-sm font-bold text-white hover:bg-accent/85"
+          >
+            View interactive demo →
+          </Link>
+        )}
 
         {caseStudy.sections.map((section) => (
           <section key={section.heading} className="mb-10 border-t border-white/10 pt-6">

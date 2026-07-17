@@ -7,6 +7,8 @@ import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import CaseStudyPage from './components/CaseStudyPage'
+import ThreadsDemoPage from './components/ThreadsDemoPage'
+import PrReviewDemoPage from './components/PrReviewDemoPage'
 
 function Home() {
   return (
@@ -27,6 +29,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/case-study/:id" element={<CaseStudyPage />} />
+        <Route path="/case-study/case-study-launch/demo" element={<ThreadsDemoPage />} />
+        <Route path="/case-study/case-study-platform/demo" element={<PrReviewDemoPage />} />
       </Routes>
       <Footer />
     </>

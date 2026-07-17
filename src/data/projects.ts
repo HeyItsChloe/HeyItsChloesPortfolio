@@ -12,6 +12,7 @@ export type CaseStudy = {
   role: string
   sections: CaseStudySection[]
   sources: CaseStudySource[]
+  demoPath?: string
 }
 
 export type Project = {
@@ -46,6 +47,7 @@ export const projects: Project[] = [
       'A speculative redesign of how Slack surfaces thread activity — plus where AI-assisted triage could cut the noise instead of adding to it.',
     caseStudy: {
       role: 'Speculative case study — concept redesign, not affiliated with Slack',
+      demoPath: '/case-study/case-study-launch/demo',
       sections: [
         {
           heading: 'The problem',
@@ -113,6 +115,7 @@ export const projects: Project[] = [
       'A concept redesign for reviewing large pull requests — risk-based collapsing, a diff outline view, and where AI summarization actually earns its keep.',
     caseStudy: {
       role: 'Speculative case study — concept redesign, not affiliated with GitHub',
+      demoPath: '/case-study/case-study-platform/demo',
       sections: [
         {
           heading: 'The problem',
