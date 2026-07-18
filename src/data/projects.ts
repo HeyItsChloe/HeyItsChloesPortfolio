@@ -56,7 +56,10 @@ export const projects: Project[] = [
     logo: 'shopify',
     summary:
       'A remote-work companion built for digital nomads. Balances deep-focus sprints with beach-worthy breaks so you can actually work from anywhere.',
-    links: [{ label: 'App Listing', url: 'https://apps.shopify.com/busybuddy' }],
+    links: [
+      { label: 'App Listing', url: 'https://apps.shopify.com/busybuddy' },
+      { label: 'Wiki', url: 'https://11thandorange.github.io/BusyBuddy_v2/' },
+    ],
     videos: [
       {
         title: 'BusyBuddy — Video 1',
@@ -96,8 +99,9 @@ export const projects: Project[] = [
     summary:
       'A point-of-sale companion for boutique cafes. Designed for a Balinese indoor-outdoor coffee shop, built to keep small teams running smoothly.',
     links: [
-      { label: 'Website', url: 'https://getordermate.com/' },
       { label: 'App Listing', url: 'https://www.clover.com/appmarket/apps/WWTF1AKT87VJ8' },
+      { label: 'Website', url: 'https://getordermate.com/' },
+      { label: 'Wiki', url: 'https://ordermate.dev/' },
     ],
     videos: [
       {

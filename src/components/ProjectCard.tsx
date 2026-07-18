@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import type { Project } from '../data/projects'
 import BrandLogo from './BrandLogo'
@@ -32,6 +32,8 @@ export default function ProjectCard({ project, edge = 'middle' }: { project: Pro
 
   const hasLinks = Boolean(project.caseStudy) || Boolean(project.links?.length)
   const hasVideos = Boolean(project.videos && project.videos.length > 0)
+  const hasDetailsTab = Boolean(project.links?.length)
+  const [activeTab, setActiveTab] = useState<'videos' | 'details'>(hasVideos ? 'videos' : 'details')
 
   return (
     <article onMouseEnter={handleEnter} onMouseLeave={handleLeave} className="group relative aspect-video">
@@ -135,33 +137,90 @@ export default function ProjectCard({ project, edge = 'middle' }: { project: Pro
             </div>
           )}
 
-          {hasVideos && (
+          {(hasVideos || hasDetailsTab) && (
             <div className="mt-3">
               <div className="mb-2 flex gap-4 border-b border-white/15 text-[11px] font-bold uppercase tracking-[1.5px]">
-                <span className="inline-block border-b-2 border-accent pb-2 text-white">Videos</span>
+                {hasVideos &&
+                  (hasDetailsTab ? (
+                    <button
+                      type="button"
+                      onClick={() => setActiveTab('videos')}
+                      className={`inline-block border-b-2 pb-2 ${
+                        activeTab === 'videos' ? 'border-accent text-white' : 'border-transparent text-[#8e8e93]'
+                      }`}
+                    >
+                      Videos
+                    </button>
+                  ) : (
+                    <span className="inline-block border-b-2 border-accent pb-2 text-white">Videos</span>
+                  ))}
+                {hasDetailsTab &&
+                  (hasVideos ? (
+                    <button
+                      type="button"
+                      onClick={() => setActiveTab('details')}
+                      className={`inline-block border-b-2 pb-2 ${
+                        activeTab === 'details' ? 'border-accent text-white' : 'border-transparent text-[#8e8e93]'
+                      }`}
+                    >
+                      Details
+                    </button>
+                  ) : (
+                    <span className="inline-block border-b-2 border-accent pb-2 text-white">Details</span>
+                  ))}
               </div>
-              <div className="flex max-h-[178px] flex-col overflow-y-auto">
-                {project.videos!.map((v, i) => (
-                  <a
-                    key={v.youtubeId}
-                    href={`https://www.youtube.com/watch?v=${v.youtubeId}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-3 border-b border-white/10 py-2 last:border-b-0"
-                  >
-                    <div className="aspect-video w-24 shrink-0 overflow-hidden rounded bg-[#0b0b0b]">
-                      <img src={v.thumbnail} alt={v.title} className="h-full w-full object-cover" />
-                    </div>
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-2 text-[12px] text-[#8e8e93]">
-                        <span>Video {i + 1}</span>
-                        {v.duration && <span>{v.duration}</span>}
+
+              {activeTab === 'videos' && hasVideos && (
+                <div className="flex max-h-[178px] flex-col overflow-y-auto">
+                  {project.videos!.map((v, i) => (
+                    <a
+                      key={v.youtubeId}
+                      href={`https://www.youtube.com/watch?v=${v.youtubeId}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center gap-3 border-b border-white/10 py-2 last:border-b-0"
+                    >
+                      <div className="aspect-video w-24 shrink-0 overflow-hidden rounded bg-[#0b0b0b]">
+                        <img src={v.thumbnail} alt={v.title} className="h-full w-full object-cover" />
                       </div>
-                      <p className="mt-0.5 line-clamp-1 text-[13px] font-bold leading-tight text-white">{v.title}</p>
-                    </div>
-                  </a>
-                ))}
-              </div>
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-2 text-[12px] text-[#8e8e93]">
+                          <span>Video {i + 1}</span>
+                          {v.duration && <span>{v.duration}</span>}
+                        </div>
+                        <p className="mt-0.5 line-clamp-1 text-[13px] font-bold leading-tight text-white">
+                          {v.title}
+                        </p>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              )}
+
+              {activeTab === 'details' && hasDetailsTab && (
+                <div className="flex max-h-[178px] flex-col overflow-y-auto">
+                  {project.links!.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center justify-between gap-3 border-b border-white/10 py-2.5 last:border-b-0"
+                    >
+                      <span className="text-[13px] font-bold text-white">{link.label}</span>
+                      <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 fill-none stroke-[#8e8e93]" strokeWidth="2">
+                        <path d="M14 5h5v5" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M19 5l-9 9" strokeLinecap="round" strokeLinejoin="round" />
+                        <path
+                          d="M12 5H6a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-6"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </div>
