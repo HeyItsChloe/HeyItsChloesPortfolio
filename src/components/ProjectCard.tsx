@@ -30,7 +30,8 @@ export default function ProjectCard({ project, edge = 'middle' }: { project: Pro
     videoRef.current?.pause()
   }
 
-  const hasLinks = Boolean(project.caseStudy) || Boolean(project.links?.length)
+  const primaryLinks = project.links?.filter((link) => link.primary) ?? []
+  const hasLinks = Boolean(project.caseStudy) || primaryLinks.length > 0
   const hasVideos = Boolean(project.videos && project.videos.length > 0)
   const hasDetailsTab = Boolean(project.links?.length)
   const [activeTab, setActiveTab] = useState<'videos' | 'details'>(hasVideos ? 'videos' : 'details')
@@ -118,7 +119,7 @@ export default function ProjectCard({ project, edge = 'middle' }: { project: Pro
                   Demo
                 </Link>
               )}
-              {project.links?.map((link) => (
+              {primaryLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.url}
