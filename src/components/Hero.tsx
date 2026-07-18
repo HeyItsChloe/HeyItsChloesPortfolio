@@ -44,20 +44,24 @@ export default function Hero() {
         </div>
 
         <p className="mb-6 max-w-[520px] text-[17px] leading-[1.5] text-[#e5e5e5] [text-shadow:0_1px_6px_rgba(0,0,0,.6)]">
-          A developer and builder who ships small, useful products — from remote-work tools
-          for digital nomads to point-of-sale systems for boutique cafes. This is a reel of
-          what I've built, what I'm building, and one very good white toy poodle.
+          Senior software engineer, engineering leader, and product-minded builder — equally
+          at home writing full-stack code, running technical projects, or untangling the
+          operational stuff that makes engineering teams actually work. I love the hard
+          problems most people avoid, and building things that make someone's day genuinely
+          easier. Remote-first, always shipping, one very supervisory toy poodle included.
         </p>
 
         <div className="mb-5 flex gap-3">
           <a
-            href="mailto:chloearibo92@gmail.com"
+            href="https://www.linkedin.com/in/chloe-aribo/"
+            target="_blank"
+            rel="noopener"
             className="inline-flex items-center gap-2.5 rounded-md bg-white px-6 py-2.5 text-base font-bold text-black transition-transform hover:-translate-y-px hover:bg-white/85"
           >
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 11.02-4.14 2.07 2.07 0 01-.02 4.14zM7.12 20.45H3.56V9h3.56v11.45z" />
             </svg>
-            Email
+            LinkedIn
           </a>
           <a
             href="https://github.com/HeyItsChloe"

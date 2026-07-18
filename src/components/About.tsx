@@ -9,31 +9,41 @@ export default function About() {
           Behind The Scenes
         </h2>
         <p className="mb-10 max-w-[720px] text-lg leading-relaxed text-[#d2d2d2]">
-          I'm a developer and builder who likes turning rough ideas into working products
-          fast — the kind of person who'd rather ship something small and useful than talk
-          about something big and theoretical.
+          I'm a software engineer who somehow also ended up leading teams, running technical
+          projects, and fixing the operational stuff nobody signs up for — turns out shipping
+          good software and keeping the humans around it unstuck are basically the same job.
+          I've led engineering initiatives end to end, worked closely with designers and
+          product, mentored other engineers, and made the technical calls that need making
+          instead of endlessly discussing them. Still the kind of person who'd rather ship
+          something small and real than talk about something big and theoretical.
         </p>
 
         <div className="grid grid-cols-1 gap-8 border-t border-white/10 pt-6 md:grid-cols-3">
           <div>
             <h3 className="mb-3 text-sm font-bold uppercase tracking-[2px]">Practice</h3>
             <p className="text-[15px] leading-relaxed text-[#b3b3b3]">
-              Full-stack development and product design — planning, building, and shipping
-              software end to end, from the first sketch to the deployed app.
+              Led Stripe and digital-wallet payment integrations, built CI/CD and DevOps
+              automation that took real toil off engineers' plates, shipped GitHub and Slack
+              integrations and internal tooling teams actually use, and drove UI redesigns and
+              new features from idea to production — usually with one foot in the technical
+              weeds and one in the cross-functional room where priorities get decided.
             </p>
           </div>
           <div>
-            <h3 className="mb-3 text-sm font-bold uppercase tracking-[2px]">What I've Built</h3>
+            <h3 className="mb-3 text-sm font-bold uppercase tracking-[2px]">Education</h3>
             <p className="text-[15px] leading-relaxed text-[#b3b3b3]">
-              BusyBuddy · OrderMate · automation pipelines · the odd app wiki nobody asked
-              for but everybody ends up using.
+              Master of Business Administration, Pepperdine University. Bachelor of Arts in
+              Business with a minor in Psychology, St. John's University.
             </p>
           </div>
           <div>
             <h3 className="mb-3 text-sm font-bold uppercase tracking-[2px]">Toolkit</h3>
             <p className="text-[15px] leading-relaxed text-[#b3b3b3]">
-              React · TypeScript · Node · Tailwind · Python — plus whatever gets the job
-              done fastest.
+              React, TypeScript, JavaScript, Node.js, Ruby on Rails, Python, and REST APIs on
+              the code side; AWS and Azure for infra, Sentry and Datadog for keeping an eye on
+              things, SQL for data, Git/GitHub/Jira/Confluence for getting work done — plus AI
+              agents, LLM integrations, and prompt engineering for the automation-heavy stuff
+              lately.
             </p>
           </div>
         </div>

@@ -1,5 +1,5 @@
 const links = [
-  { label: 'Email', value: 'chloearibo92@gmail.com', href: 'mailto:chloearibo92@gmail.com' },
+  { label: 'LinkedIn', value: 'linkedin.com/in/chloe-aribo', href: 'https://www.linkedin.com/in/chloe-aribo/' },
   { label: 'GitHub', value: 'github.com/HeyItsChloe', href: 'https://github.com/HeyItsChloe' },
 ]
 
@@ -14,7 +14,8 @@ export default function Contact() {
           Let's build something.
         </h2>
         <p className="mb-10 max-w-[720px] text-lg leading-relaxed text-[#d2d2d2]">
-          Open to collaborations, freelance builds, and long walks with dogs.
+          Open to collaborations, freelance builds, and long walks with dogs. Send me a
+          message on LinkedIn — I actually read those.
         </p>
 
         <div className="grid max-w-[820px] grid-cols-1 gap-3.5 sm:grid-cols-2">
