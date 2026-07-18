@@ -6,9 +6,9 @@ import BrandLogo from './BrandLogo'
 type Edge = 'first' | 'middle' | 'last'
 
 const popoutPosition: Record<Edge, string> = {
-  first: 'left-0 right-auto',
-  middle: 'left-[-19%] right-auto',
-  last: 'left-auto right-0',
+  first: 'sm:left-0 sm:right-auto',
+  middle: 'sm:left-[-19%] sm:right-auto',
+  last: 'sm:left-auto sm:right-0',
 }
 
 export default function ProjectCard({ project, edge = 'middle' }: { project: Project; edge?: Edge }) {
@@ -54,7 +54,7 @@ export default function ProjectCard({ project, edge = 'middle' }: { project: Pro
 
       {/* Netflix-style hover preview */}
       <div
-        className={`pointer-events-none absolute top-0 z-30 w-[138%] origin-top scale-[0.97] overflow-hidden rounded-md bg-[#181818] opacity-0 shadow-[0_20px_50px_rgba(0,0,0,.8)] transition-all duration-300 group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100 ${popoutPosition[edge]}`}
+        className={`pointer-events-none absolute left-0 right-0 top-0 z-30 w-full origin-top scale-100 overflow-hidden rounded-md bg-[#181818] opacity-0 shadow-[0_20px_50px_rgba(0,0,0,.8)] transition-all duration-300 group-hover:pointer-events-auto group-hover:opacity-100 sm:w-[138%] sm:scale-[0.97] sm:group-hover:scale-100 ${popoutPosition[edge]}`}
       >
         <div className="relative aspect-video overflow-hidden">
           <div className="absolute inset-0 bg-cover bg-center" style={{ background: project.poster }} />
