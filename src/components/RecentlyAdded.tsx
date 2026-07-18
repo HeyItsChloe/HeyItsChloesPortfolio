@@ -11,9 +11,10 @@ export default function RecentlyAdded() {
         {recentlyAdded.map((item) => {
           const content = (
             <>
-              <div
-                className="aspect-video rounded-md shadow-[inset_0_0_0_1px_rgba(255,255,255,.05)]"
-                style={{ background: item.gradient }}
+              <img
+                src={item.image}
+                alt={item.label}
+                className="aspect-video w-full rounded-md object-cover shadow-[inset_0_0_0_1px_rgba(255,255,255,.05)]"
               />
               <span className="text-[13px] font-medium text-[#e5e5e5]">{item.label}</span>
             </>

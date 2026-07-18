@@ -129,16 +129,19 @@ export default function ProjectCard({ project, edge = 'middle' }: { project: Pro
                     href={`https://www.youtube.com/watch?v=${v.youtubeId}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="w-[136px] shrink-0"
+                    className="w-[164px] shrink-0"
                   >
                     <div className="aspect-video overflow-hidden rounded bg-[#0b0b0b]">
                       <img src={v.thumbnail} alt={v.title} className="h-full w-full object-cover" />
                     </div>
-                    <div className="mt-1 flex items-center justify-between text-[10px] text-[#8e8e93]">
+                    <div className="mt-1 h-[3px] w-full overflow-hidden rounded-full bg-white/20">
+                      <div className="h-full w-2/5 rounded-full bg-accent" />
+                    </div>
+                    <div className="mt-1.5 flex items-center justify-between text-[12px] text-[#8e8e93]">
                       <span>Video {i + 1}</span>
                       {v.duration && <span>{v.duration}</span>}
                     </div>
-                    <p className="line-clamp-2 text-[11px] font-bold leading-tight text-white">{v.title}</p>
+                    <p className="mt-0.5 line-clamp-2 text-[12.5px] font-bold leading-tight text-white">{v.title}</p>
                   </a>
                 ))}
               </div>

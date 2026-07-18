@@ -267,26 +267,26 @@ export const projects: Project[] = [
 ]
 
 export const recentlyAdded = [
-  { label: 'Arcade', gradient: 'linear-gradient(135deg,#4a2b6b,#c33764)', to: '/arcade' },
+  { label: 'Arcade', image: '/videos/images/recently_added/arcade.png', to: '/arcade' },
   {
     label: 'Automations Pipeline',
-    gradient: 'linear-gradient(135deg,#232526,#414345)',
+    image: '/videos/images/recently_added/automations-pipeline.png',
     href: 'https://github.com/apps/pipeline-orchestrator-opps',
   },
   {
     label: 'Docs-Site Automation Wiki',
-    gradient: 'linear-gradient(135deg,#8e2de2,#4a00e0)',
+    image: '/videos/images/recently_added/docs-site.png',
     href: 'https://heyitschloe.github.io/auto-docs-site/',
   },
   {
     label: 'E-commerce App Wiki',
-    gradient: 'linear-gradient(135deg,#f7971e,#ffd200)',
+    image: '/videos/images/recently_added/ecommerce.png',
     href: 'https://11thandorange.github.io/BusyBuddy_v2/',
   },
   {
     label: 'PoS Register App Wiki',
-    gradient: 'linear-gradient(135deg,#1e3c72,#2a5298)',
+    image: '/videos/images/recently_added/pos-register.png',
     href: 'https://ordermate.dev/',
   },
-  { label: 'Templates', gradient: 'linear-gradient(135deg,#0f2027,#2c5364)', to: '/coming-soon' },
+  { label: 'Templates', image: '/videos/images/recently_added/templates.png', to: '/coming-soon' },
 ]
