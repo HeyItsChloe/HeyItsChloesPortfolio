@@ -9,6 +9,7 @@ import Footer from './components/Footer'
 import CaseStudyPage from './components/CaseStudyPage'
 import ThreadsDemoPage from './components/ThreadsDemoPage'
 import PrReviewDemoPage from './components/PrReviewDemoPage'
+import ArcadePage from './components/ArcadePage'
 
 function Home() {
   return (
@@ -31,6 +32,7 @@ export default function App() {
         <Route path="/case-study/:id" element={<CaseStudyPage />} />
         <Route path="/case-study/case-study-launch/demo" element={<ThreadsDemoPage />} />
         <Route path="/case-study/case-study-platform/demo" element={<PrReviewDemoPage />} />
+        <Route path="/arcade" element={<ArcadePage />} />
       </Routes>
       <Footer />
     </>

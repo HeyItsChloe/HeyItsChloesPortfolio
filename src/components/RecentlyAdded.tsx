@@ -1,4 +1,7 @@
+import { Link } from 'react-router-dom'
 import { recentlyAdded } from '../data/projects'
+
+const cardClassName = 'flex cursor-pointer flex-col gap-2 transition-transform hover:-translate-y-1'
 
 export default function RecentlyAdded() {
   return (
@@ -6,22 +9,36 @@ export default function RecentlyAdded() {
       <h2 className="mb-3.5 text-xl font-bold text-[#e5e5e5]">Recently Added</h2>
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
         {recentlyAdded.map((item) => {
-          const Wrapper = item.href ? 'a' : 'div'
-          const linkProps = item.href
-            ? { href: item.href, target: '_blank', rel: 'noreferrer' }
-            : {}
-          return (
-            <Wrapper
-              key={item.label}
-              {...linkProps}
-              className="flex cursor-pointer flex-col gap-2 transition-transform hover:-translate-y-1"
-            >
+          const content = (
+            <>
               <div
                 className="aspect-video rounded-md shadow-[inset_0_0_0_1px_rgba(255,255,255,.05)]"
                 style={{ background: item.gradient }}
               />
               <span className="text-[13px] font-medium text-[#e5e5e5]">{item.label}</span>
-            </Wrapper>
+            </>
+          )
+
+          if (item.to) {
+            return (
+              <Link key={item.label} to={item.to} className={cardClassName}>
+                {content}
+              </Link>
+            )
+          }
+
+          if (item.href) {
+            return (
+              <a key={item.label} href={item.href} target="_blank" rel="noreferrer" className={cardClassName}>
+                {content}
+              </a>
+            )
+          }
+
+          return (
+            <div key={item.label} className={cardClassName}>
+              {content}
+            </div>
           )
         })}
       </div>

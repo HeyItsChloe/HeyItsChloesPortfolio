@@ -195,7 +195,7 @@ export const projects: Project[] = [
 ]
 
 export const recentlyAdded = [
-  { label: 'Blogs', gradient: 'linear-gradient(135deg,#4a2b6b,#c33764)' },
+  { label: 'Arcade', gradient: 'linear-gradient(135deg,#4a2b6b,#c33764)', to: '/arcade' },
   { label: 'Templates', gradient: 'linear-gradient(135deg,#0f2027,#2c5364)' },
   {
     label: 'Docs-Site Automation Wiki',
