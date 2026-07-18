@@ -30,7 +30,7 @@ export default function ProjectCard({ project, edge = 'middle' }: { project: Pro
     videoRef.current?.pause()
   }
 
-  const hasLinks = Boolean(project.caseStudy)
+  const hasLinks = Boolean(project.caseStudy) || Boolean(project.links?.length)
   const hasVideos = Boolean(project.videos && project.videos.length > 0)
 
   return (
@@ -78,32 +78,6 @@ export default function ProjectCard({ project, edge = 'middle' }: { project: Pro
             {project.title}
           </h3>
 
-          {hasLinks && (
-            <div className="mb-2.5 flex flex-wrap items-center gap-4">
-              <Link
-                to={`/case-study/${project.id}`}
-                className="flex items-center gap-1.5 text-[13px] font-bold text-white hover:text-white/80"
-              >
-                <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-white" strokeWidth="2">
-                  <circle cx="12" cy="12" r="9.5" />
-                  <path d="M8 12.5l2.5 2.5L16 9.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-                Case Study
-              </Link>
-              {project.caseStudy?.demoPath && (
-                <Link
-                  to={project.caseStudy.demoPath}
-                  className="flex items-center gap-1.5 text-[13px] font-bold text-accent hover:text-accent/80"
-                >
-                  <svg viewBox="0 0 24 24" className="h-4 w-4 fill-accent">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                  Demo
-                </Link>
-              )}
-            </div>
-          )}
-
           <p className="mb-2.5 line-clamp-3 text-[13px] leading-relaxed text-[#d2d2d2]">{project.summary}</p>
 
           <div className="mb-1 flex flex-wrap gap-1.5">
@@ -116,6 +90,50 @@ export default function ProjectCard({ project, edge = 'middle' }: { project: Pro
               </span>
             ))}
           </div>
+
+          {hasLinks && (
+            <div className="mb-2.5 mt-2.5 flex flex-wrap items-center gap-4">
+              {project.caseStudy && (
+                <Link
+                  to={`/case-study/${project.id}`}
+                  className="flex items-center gap-1.5 text-[13px] font-bold text-white hover:text-white/80"
+                >
+                  <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-white" strokeWidth="2">
+                    <circle cx="12" cy="12" r="9.5" />
+                    <path d="M8 12.5l2.5 2.5L16 9.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  Case Study
+                </Link>
+              )}
+              {project.caseStudy?.demoPath && (
+                <Link
+                  to={project.caseStudy.demoPath}
+                  className="flex items-center gap-1.5 text-[13px] font-bold text-accent hover:text-accent/80"
+                >
+                  <svg viewBox="0 0 24 24" className="h-4 w-4 fill-accent">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                  Demo
+                </Link>
+              )}
+              {project.links?.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-1.5 text-[13px] font-bold text-white hover:text-white/80"
+                >
+                  <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-white" strokeWidth="2">
+                    <path d="M14 5h5v5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M19 5l-9 9" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M12 5H6a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          )}
 
           {hasVideos && (
             <div className="mt-3">

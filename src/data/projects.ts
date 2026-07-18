@@ -24,6 +24,11 @@ export type ProjectVideo = {
 
 export type ProjectLogo = 'github' | 'slack' | 'shopify' | 'clover'
 
+export type ProjectLink = {
+  label: string
+  url: string
+}
+
 export type Project = {
   id: string
   title: string
@@ -34,6 +39,7 @@ export type Project = {
   summary: string
   logo?: ProjectLogo
   caseStudy?: CaseStudy
+  links?: ProjectLink[]
   videos?: ProjectVideo[]
 }
 
@@ -50,6 +56,7 @@ export const projects: Project[] = [
     logo: 'shopify',
     summary:
       'A remote-work companion built for digital nomads. Balances deep-focus sprints with beach-worthy breaks so you can actually work from anywhere.',
+    links: [{ label: 'App Listing', url: 'https://apps.shopify.com/busybuddy' }],
     videos: [
       {
         title: 'BusyBuddy — Video 1',
@@ -88,6 +95,10 @@ export const projects: Project[] = [
     logo: 'clover',
     summary:
       'A point-of-sale companion for boutique cafes. Designed for a Balinese indoor-outdoor coffee shop, built to keep small teams running smoothly.',
+    links: [
+      { label: 'Website', url: 'https://getordermate.com/' },
+      { label: 'App Listing', url: 'https://www.clover.com/appmarket/apps/WWTF1AKT87VJ8' },
+    ],
     videos: [
       {
         title: 'OrderMate — Video 1',
