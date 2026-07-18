@@ -22,13 +22,17 @@ export type ProjectVideo = {
   duration: string
 }
 
+export type ProjectLogo = 'github' | 'slack' | 'shopify' | 'clover'
+
 export type Project = {
   id: string
   title: string
   video: string
+  youtubePlaylistId?: string
   poster: string
   tags: string[]
   summary: string
+  logo?: ProjectLogo
   caseStudy?: CaseStudy
   videos?: ProjectVideo[]
 }
@@ -40,8 +44,10 @@ export const projects: Project[] = [
     id: 'busybuddy',
     title: 'BusyBuddy',
     video: `${base}videos/travel.mp4`,
+    youtubePlaylistId: 'PLu0EC-eEx_UgpxppqI9mTaB0U5YbJk794',
     poster: 'linear-gradient(135deg,#f7971e 0%,#e94057 55%,#4a2b6b 100%)',
     tags: ['2025', 'Productivity', 'SaaS'],
+    logo: 'shopify',
     summary:
       'A remote-work companion built for digital nomads. Balances deep-focus sprints with beach-worthy breaks so you can actually work from anywhere.',
   },
@@ -49,8 +55,10 @@ export const projects: Project[] = [
     id: 'ordermate',
     title: 'OrderMate',
     video: `${base}videos/architecture.mp4`,
+    youtubePlaylistId: 'PLu0EC-eEx_UimWb_j0rYKzAtXhh8Vonwl',
     poster: 'linear-gradient(135deg,#3a2c1f 0%,#7a5c3e 45%,#1e3c72 100%)',
     tags: ['2024', 'Hospitality', 'POS'],
+    logo: 'clover',
     summary:
       'A point-of-sale companion for boutique cafes. Designed for a Balinese indoor-outdoor coffee shop, built to keep small teams running smoothly.',
   },
@@ -60,6 +68,7 @@ export const projects: Project[] = [
     video: `${base}videos/adventure.mp4`,
     poster: 'linear-gradient(135deg,#11998e 0%,#38ef7d 45%,#1e3c72 100%)',
     tags: ['2025', 'Case Study', 'Product'],
+    logo: 'github',
     summary:
       'A speculative redesign of how Slack surfaces thread activity — plus where AI-assisted triage could cut the noise instead of adding to it.',
     caseStudy: {
@@ -128,6 +137,7 @@ export const projects: Project[] = [
     video: `${base}videos/tech.mp4`,
     poster: 'linear-gradient(135deg,#0f2027 0%,#2c5364 55%,#8e2de2 100%)',
     tags: ['2025', 'Case Study', 'Tech'],
+    logo: 'slack',
     summary:
       'A concept redesign for reviewing large pull requests — risk-based collapsing, a diff outline view, and where AI summarization actually earns its keep.',
     caseStudy: {
