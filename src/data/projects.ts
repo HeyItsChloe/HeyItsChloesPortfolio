@@ -197,8 +197,24 @@ export const projects: Project[] = [
 export const recentlyAdded = [
   { label: 'Blogs', gradient: 'linear-gradient(135deg,#4a2b6b,#c33764)' },
   { label: 'Templates', gradient: 'linear-gradient(135deg,#0f2027,#2c5364)' },
-  { label: 'Automation Pipelines', gradient: 'linear-gradient(135deg,#8e2de2,#4a00e0)' },
-  { label: 'E-commerce App Wiki', gradient: 'linear-gradient(135deg,#f7971e,#ffd200)' },
-  { label: 'PoS System Wiki', gradient: 'linear-gradient(135deg,#1e3c72,#2a5298)' },
-  { label: 'Agent Automations Wiki', gradient: 'linear-gradient(135deg,#232526,#414345)' },
+  {
+    label: 'Docs-Site Automation Wiki',
+    gradient: 'linear-gradient(135deg,#8e2de2,#4a00e0)',
+    href: 'https://heyitschloe.github.io/auto-docs-site/',
+  },
+  {
+    label: 'E-commerce App Wiki',
+    gradient: 'linear-gradient(135deg,#f7971e,#ffd200)',
+    href: 'https://11thandorange.github.io/BusyBuddy_v2/',
+  },
+  {
+    label: 'PoS Register App Wiki',
+    gradient: 'linear-gradient(135deg,#1e3c72,#2a5298)',
+    href: 'https://ordermate.dev/',
+  },
+  {
+    label: 'Automations Pipeline',
+    gradient: 'linear-gradient(135deg,#232526,#414345)',
+    href: 'https://github.com/apps/pipeline-orchestrator-opps',
+  },
 ]
