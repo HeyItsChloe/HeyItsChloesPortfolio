@@ -38,12 +38,8 @@ export default function ProjectCard({ project }: { project: Project }) {
           playsInline
           preload="metadata"
         />
-        {project.logo && (
-          <div className="absolute left-2 top-2 grid h-7 w-7 place-items-center rounded bg-black/60 backdrop-blur-sm">
-            <BrandLogo logo={project.logo} className="h-4 w-4" />
-          </div>
-        )}
-        <div className="absolute inset-x-3 bottom-3 font-display text-2xl tracking-wide [text-shadow:0_2px_8px_rgba(0,0,0,.7)]">
+        <div className="absolute inset-x-3 bottom-3 flex items-center gap-2 font-display text-2xl tracking-wide [text-shadow:0_2px_8px_rgba(0,0,0,.7)]">
+          {project.logo && <BrandLogo logo={project.logo} className="h-5 w-5 shrink-0" />}
           {project.title}
         </div>
       </div>
@@ -64,24 +60,13 @@ export default function ProjectCard({ project }: { project: Project }) {
             preload="auto"
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#181818] via-transparent to-transparent" />
-
-          {project.logo && (
-            <div className="absolute left-2.5 top-2.5 grid h-8 w-8 place-items-center rounded bg-black/60 backdrop-blur-sm">
-              <BrandLogo logo={project.logo} className="h-[18px] w-[18px]" />
-            </div>
-          )}
-
-          <div className="absolute inset-0 grid place-items-center">
-            <div className="grid h-12 w-12 place-items-center rounded-full border-2 border-white/90 bg-black/35 backdrop-blur-sm">
-              <svg viewBox="0 0 24 24" className="ml-0.5 h-5 w-5 fill-white">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </div>
-          </div>
         </div>
 
         <div className="px-4 pb-4 pt-2.5">
-          <h3 className="mb-1.5 font-display text-xl tracking-[.5px]">{project.title}</h3>
+          <h3 className="mb-1.5 flex items-center gap-2 font-display text-xl tracking-[.5px]">
+            {project.logo && <BrandLogo logo={project.logo} className="h-5 w-5 shrink-0" />}
+            {project.title}
+          </h3>
 
           {hasLinks && (
             <div className="mb-2.5 flex flex-wrap items-center gap-4">
@@ -137,9 +122,11 @@ export default function ProjectCard({ project }: { project: Project }) {
                   >
                     <div className="relative aspect-video overflow-hidden rounded bg-[#0b0b0b]">
                       <img src={v.thumbnail} alt={v.title} className="h-full w-full object-cover" />
-                      <span className="absolute bottom-0.5 right-0.5 rounded bg-black/80 px-1 text-[9px] font-medium text-white">
-                        {v.duration}
-                      </span>
+                      {v.duration && (
+                        <span className="absolute bottom-0.5 right-0.5 rounded bg-black/80 px-1 text-[9px] font-medium text-white">
+                          {v.duration}
+                        </span>
+                      )}
                     </div>
                     <p className="mt-1 line-clamp-2 text-[10.5px] leading-tight text-[#d2d2d2]">{v.title}</p>
                   </a>

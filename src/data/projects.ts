@@ -19,7 +19,7 @@ export type ProjectVideo = {
   title: string
   youtubeId: string
   thumbnail: string
-  duration: string
+  duration?: string
 }
 
 export type ProjectLogo = 'github' | 'slack' | 'shopify' | 'clover'
@@ -50,6 +50,33 @@ export const projects: Project[] = [
     logo: 'shopify',
     summary:
       'A remote-work companion built for digital nomads. Balances deep-focus sprints with beach-worthy breaks so you can actually work from anywhere.',
+    videos: [
+      {
+        title: 'BusyBuddy — Video 1',
+        youtubeId: 'Vk9s6jE4s-k',
+        thumbnail: 'https://img.youtube.com/vi/Vk9s6jE4s-k/hqdefault.jpg',
+      },
+      {
+        title: 'BusyBuddy — Video 2',
+        youtubeId: 'xXCmWDj5EBA',
+        thumbnail: 'https://img.youtube.com/vi/xXCmWDj5EBA/hqdefault.jpg',
+      },
+      {
+        title: 'BusyBuddy — Video 3',
+        youtubeId: 'qEs2M9BSC2g',
+        thumbnail: 'https://img.youtube.com/vi/qEs2M9BSC2g/hqdefault.jpg',
+      },
+      {
+        title: 'BusyBuddy — Video 4',
+        youtubeId: 'iXrejugelYs',
+        thumbnail: 'https://img.youtube.com/vi/iXrejugelYs/hqdefault.jpg',
+      },
+      {
+        title: 'BusyBuddy — Video 5',
+        youtubeId: 'dwAkvG2xLkc',
+        thumbnail: 'https://img.youtube.com/vi/dwAkvG2xLkc/hqdefault.jpg',
+      },
+    ],
   },
   {
     id: 'ordermate',
@@ -61,6 +88,33 @@ export const projects: Project[] = [
     logo: 'clover',
     summary:
       'A point-of-sale companion for boutique cafes. Designed for a Balinese indoor-outdoor coffee shop, built to keep small teams running smoothly.',
+    videos: [
+      {
+        title: 'OrderMate — Video 1',
+        youtubeId: 'cwyF2NgQz54',
+        thumbnail: 'https://img.youtube.com/vi/cwyF2NgQz54/hqdefault.jpg',
+      },
+      {
+        title: 'OrderMate — Video 2',
+        youtubeId: 'nNO3-6LSZrY',
+        thumbnail: 'https://img.youtube.com/vi/nNO3-6LSZrY/hqdefault.jpg',
+      },
+      {
+        title: 'OrderMate — Video 3',
+        youtubeId: 'j8ylpJlR21o',
+        thumbnail: 'https://img.youtube.com/vi/j8ylpJlR21o/hqdefault.jpg',
+      },
+      {
+        title: 'OrderMate — Video 4',
+        youtubeId: 'EfkYBxFmgOM',
+        thumbnail: 'https://img.youtube.com/vi/EfkYBxFmgOM/hqdefault.jpg',
+      },
+      {
+        title: 'OrderMate — Video 5',
+        youtubeId: 'eAGtLMxInnw',
+        thumbnail: 'https://img.youtube.com/vi/eAGtLMxInnw/hqdefault.jpg',
+      },
+    ],
   },
   {
     id: 'case-study-launch',
