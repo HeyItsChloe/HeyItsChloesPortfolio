@@ -6,7 +6,7 @@ export default function About() {
           About
         </span>
         <h2 className="mb-6 font-display text-[clamp(44px,6vw,84px)] leading-none">
-          Hi, I'm Chloe.
+          Behind The Scenes
         </h2>
         <p className="mb-10 max-w-[720px] text-lg leading-relaxed text-[#d2d2d2]">
           I'm a developer and builder who likes turning rough ideas into working products
