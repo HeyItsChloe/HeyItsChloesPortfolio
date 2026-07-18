@@ -122,7 +122,7 @@ export default function ProjectCard({ project, edge = 'middle' }: { project: Pro
               <div className="mb-2 flex gap-4 border-b border-white/15 text-[11px] font-bold uppercase tracking-[1.5px]">
                 <span className="inline-block border-b-2 border-accent pb-2 text-white">Videos</span>
               </div>
-              <div className="flex flex-col">
+              <div className="flex max-h-[178px] flex-col overflow-y-auto">
                 {project.videos!.map((v, i) => (
                   <a
                     key={v.youtubeId}

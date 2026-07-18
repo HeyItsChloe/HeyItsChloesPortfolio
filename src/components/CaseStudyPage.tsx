@@ -21,9 +21,13 @@ export default function CaseStudyPage() {
           ← Back to work
         </Link>
 
-        <div
-          className="mb-8 aspect-video w-full rounded-md bg-cover bg-center"
-          style={{ background: project.poster }}
+        <video
+          className="mb-8 aspect-video w-full rounded-md object-cover"
+          src={project.video}
+          autoPlay
+          muted
+          loop
+          playsInline
         />
 
         <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[3px] text-accent">

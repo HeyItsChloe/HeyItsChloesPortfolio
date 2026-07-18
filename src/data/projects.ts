@@ -267,26 +267,26 @@ export const projects: Project[] = [
 ]
 
 export const recentlyAdded = [
-  { label: 'Arcade', image: '/videos/images/recently_added/arcade.png', to: '/arcade' },
+  { label: 'Arcade', image: `${base}videos/images/recently_added/arcade.png`, to: '/arcade' },
   {
     label: 'Automations Pipeline',
-    image: '/videos/images/recently_added/automations-pipeline.png',
+    image: `${base}videos/images/recently_added/automations-pipeline.png`,
     href: 'https://github.com/apps/pipeline-orchestrator-opps',
   },
   {
     label: 'Docs-Site Automation Wiki',
-    image: '/videos/images/recently_added/docs-site.png',
+    image: `${base}videos/images/recently_added/docs-site.png`,
     href: 'https://heyitschloe.github.io/auto-docs-site/',
   },
   {
     label: 'E-commerce App Wiki',
-    image: '/videos/images/recently_added/ecommerce.png',
+    image: `${base}videos/images/recently_added/ecommerce.png`,
     href: 'https://11thandorange.github.io/BusyBuddy_v2/',
   },
   {
     label: 'PoS Register App Wiki',
-    image: '/videos/images/recently_added/pos-register.png',
+    image: `${base}videos/images/recently_added/pos-register.png`,
     href: 'https://ordermate.dev/',
   },
-  { label: 'Templates', image: '/videos/images/recently_added/templates.png', to: '/coming-soon' },
+  { label: 'Templates', image: `${base}videos/images/recently_added/templates.png`, to: '/coming-soon' },
 ]
