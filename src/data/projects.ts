@@ -15,6 +15,13 @@ export type CaseStudy = {
   demoPath?: string
 }
 
+export type ProjectVideo = {
+  title: string
+  youtubeId: string
+  thumbnail: string
+  duration: string
+}
+
 export type Project = {
   id: string
   title: string
@@ -23,6 +30,7 @@ export type Project = {
   tags: string[]
   summary: string
   caseStudy?: CaseStudy
+  videos?: ProjectVideo[]
 }
 
 const base = import.meta.env.BASE_URL
@@ -36,6 +44,15 @@ export const projects: Project[] = [
     tags: ['2025', 'Productivity', 'SaaS'],
     summary:
       'A remote-work companion built for digital nomads. Balances deep-focus sprints with beach-worthy breaks so you can actually work from anywhere.',
+  },
+  {
+    id: 'ordermate',
+    title: 'OrderMate',
+    video: `${base}videos/architecture.mp4`,
+    poster: 'linear-gradient(135deg,#3a2c1f 0%,#7a5c3e 45%,#1e3c72 100%)',
+    tags: ['2024', 'Hospitality', 'POS'],
+    summary:
+      'A point-of-sale companion for boutique cafes. Designed for a Balinese indoor-outdoor coffee shop, built to keep small teams running smoothly.',
   },
   {
     id: 'case-study-launch',
@@ -183,20 +200,15 @@ export const projects: Project[] = [
       ],
     },
   },
-  {
-    id: 'ordermate',
-    title: 'OrderMate',
-    video: `${base}videos/architecture.mp4`,
-    poster: 'linear-gradient(135deg,#3a2c1f 0%,#7a5c3e 45%,#1e3c72 100%)',
-    tags: ['2024', 'Hospitality', 'POS'],
-    summary:
-      'A point-of-sale companion for boutique cafes. Designed for a Balinese indoor-outdoor coffee shop, built to keep small teams running smoothly.',
-  },
 ]
 
 export const recentlyAdded = [
   { label: 'Arcade', gradient: 'linear-gradient(135deg,#4a2b6b,#c33764)', to: '/arcade' },
-  { label: 'Templates', gradient: 'linear-gradient(135deg,#0f2027,#2c5364)' },
+  {
+    label: 'Automations Pipeline',
+    gradient: 'linear-gradient(135deg,#232526,#414345)',
+    href: 'https://github.com/apps/pipeline-orchestrator-opps',
+  },
   {
     label: 'Docs-Site Automation Wiki',
     gradient: 'linear-gradient(135deg,#8e2de2,#4a00e0)',
@@ -212,9 +224,5 @@ export const recentlyAdded = [
     gradient: 'linear-gradient(135deg,#1e3c72,#2a5298)',
     href: 'https://ordermate.dev/',
   },
-  {
-    label: 'Automations Pipeline',
-    gradient: 'linear-gradient(135deg,#232526,#414345)',
-    href: 'https://github.com/apps/pipeline-orchestrator-opps',
-  },
+  { label: 'Templates', gradient: 'linear-gradient(135deg,#0f2027,#2c5364)', to: '/coming-soon' },
 ]

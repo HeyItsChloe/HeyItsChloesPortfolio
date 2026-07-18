@@ -21,11 +21,16 @@ export default function ProjectCard({ project }: { project: Project }) {
     videoRef.current?.pause()
   }
 
-  const cardClassName =
-    'group relative block aspect-video cursor-pointer overflow-hidden rounded-md bg-[#181818] transition-transform duration-[350ms] ease-[cubic-bezier(.2,.7,.2,1)] hover:z-20 hover:scale-[1.55] hover:shadow-[0_20px_40px_rgba(0,0,0,.7),0_0_0_1px_rgba(255,255,255,.05)] first:hover:origin-left last:hover:origin-right'
+  const hasLinks = Boolean(project.caseStudy)
+  const hasVideos = Boolean(project.videos && project.videos.length > 0)
 
-  const content = (
-    <>
+  return (
+    <article
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+      className="group relative block aspect-video cursor-default overflow-hidden rounded-md bg-[#181818] transition-transform duration-[350ms] ease-[cubic-bezier(.2,.7,.2,1)] hover:z-20 hover:scale-[1.55] hover:shadow-[0_20px_40px_rgba(0,0,0,.7),0_0_0_1px_rgba(255,255,255,.05)] first:hover:origin-left last:hover:origin-right"
+    >
+      {/* Video preview */}
       <div className="absolute inset-0 bg-cover bg-center" style={{ background: project.poster }} />
       <video
         ref={videoRef}
@@ -36,18 +41,29 @@ export default function ProjectCard({ project }: { project: Project }) {
         playsInline
         preload="auto"
       />
+      <div className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/10" />
+      <div className="pointer-events-none absolute inset-0 grid place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div className="grid h-11 w-11 place-items-center rounded-full border-2 border-white/80 bg-black/40 backdrop-blur-sm">
+          <svg viewBox="0 0 24 24" className="ml-0.5 h-4 w-4 fill-white">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </div>
+      </div>
+
       <div className="absolute inset-x-3 bottom-3 font-display text-2xl tracking-wide [text-shadow:0_2px_8px_rgba(0,0,0,.7)] transition-opacity duration-300 group-hover:opacity-0">
         {project.title}
       </div>
 
+      {/* Hover detail panel */}
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-1.5 px-3.5 pb-3.5 pt-3 opacity-0 transition-all duration-300 delay-100 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-x-0 bottom-0 max-h-full translate-y-1.5 overflow-y-auto px-3.5 pb-2.5 pt-2 opacity-0 transition-all duration-300 delay-100 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100"
         style={{
-          background: 'linear-gradient(180deg,transparent,rgba(20,20,20,.98) 40%,#141414)',
+          background: 'linear-gradient(180deg,transparent,rgba(20,20,20,.98) 14%,#141414)',
         }}
       >
-        <h3 className="mb-2 font-display text-[22px] tracking-[.5px]">{project.title}</h3>
-        <div className="mb-2 flex flex-wrap gap-2 text-xs font-medium text-[#b3b3b3]">
+        <h3 className="mb-1 font-display text-lg tracking-[.5px]">{project.title}</h3>
+
+        <div className="mb-1.5 flex flex-wrap gap-2 text-[11px] font-medium text-[#b3b3b3]">
           {project.tags.map((tag, i) => (
             <span key={tag} className="relative pr-2">
               {tag}
@@ -57,53 +73,49 @@ export default function ProjectCard({ project }: { project: Project }) {
             </span>
           ))}
         </div>
-        <p className="line-clamp-3 text-[12.5px] leading-snug text-[#d2d2d2]">{project.summary}</p>
-        <div className="mt-2.5 flex gap-2">
-          <button
-            title="Play"
-            className="grid h-8 w-8 place-items-center rounded-full border-[1.5px] border-white bg-white text-black transition-colors hover:bg-white/85"
-          >
-            <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-current">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </button>
-          <button
-            title="Add"
-            className="grid h-8 w-8 place-items-center rounded-full border-[1.5px] border-white/50 bg-[rgba(42,42,42,.6)] transition-colors hover:border-white hover:bg-white/15"
-          >
-            <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-current">
-              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z" />
-            </svg>
-          </button>
-          <button
-            title="Like"
-            className="grid h-8 w-8 place-items-center rounded-full border-[1.5px] border-white/50 bg-[rgba(42,42,42,.6)] transition-colors hover:border-white hover:bg-white/15"
-          >
-            <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-current">
-              <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V10z" />
-            </svg>
-          </button>
-        </div>
+
+        <p className="mb-1.5 line-clamp-2 text-[12px] leading-snug text-[#d2d2d2]">{project.summary}</p>
+
+        {hasLinks && (
+          <div className="mb-1.5 flex flex-wrap gap-3 text-[11.5px] font-bold">
+            <Link to={`/case-study/${project.id}`} className="text-white underline-offset-2 hover:underline">
+              Read Case Study →
+            </Link>
+            {project.caseStudy?.demoPath && (
+              <Link to={project.caseStudy.demoPath} className="text-accent underline-offset-2 hover:underline">
+                Watch Demo →
+              </Link>
+            )}
+          </div>
+        )}
+
+        {hasVideos && (
+          <div className="mt-1">
+            <div className="mb-1.5 border-b border-white/15 text-[10px] font-bold uppercase tracking-[1.5px]">
+              <span className="inline-block border-b-2 border-accent pb-1 text-white">Videos</span>
+            </div>
+            <div className="flex gap-2 overflow-x-auto pb-0.5">
+              {project.videos!.map((v) => (
+                <a
+                  key={v.youtubeId}
+                  href={`https://www.youtube.com/watch?v=${v.youtubeId}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-[104px] shrink-0"
+                >
+                  <div className="relative aspect-video overflow-hidden rounded bg-[#0b0b0b]">
+                    <img src={v.thumbnail} alt={v.title} className="h-full w-full object-cover" />
+                    <span className="absolute bottom-0.5 right-0.5 rounded bg-black/80 px-1 text-[9px] font-medium text-white">
+                      {v.duration}
+                    </span>
+                  </div>
+                  <p className="mt-1 line-clamp-2 text-[10.5px] leading-tight text-[#d2d2d2]">{v.title}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
-    </>
-  )
-
-  if (project.caseStudy) {
-    return (
-      <Link
-        to={`/case-study/${project.id}`}
-        onMouseEnter={handleEnter}
-        onMouseLeave={handleLeave}
-        className={cardClassName}
-      >
-        {content}
-      </Link>
-    )
-  }
-
-  return (
-    <article onMouseEnter={handleEnter} onMouseLeave={handleLeave} className={cardClassName}>
-      {content}
     </article>
   )
 }
