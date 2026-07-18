@@ -133,7 +133,7 @@ export const projects: Project[] = [
     video: `${base}videos/adventure.mp4`,
     poster: 'linear-gradient(135deg,#11998e 0%,#38ef7d 45%,#1e3c72 100%)',
     tags: ['2025', 'Case Study', 'Product'],
-    logo: 'github',
+    logo: 'slack',
     summary:
       'A speculative redesign of how Slack surfaces thread activity — plus where AI-assisted triage could cut the noise instead of adding to it.',
     caseStudy: {
@@ -202,7 +202,7 @@ export const projects: Project[] = [
     video: `${base}videos/tech.mp4`,
     poster: 'linear-gradient(135deg,#0f2027 0%,#2c5364 55%,#8e2de2 100%)',
     tags: ['2025', 'Case Study', 'Tech'],
-    logo: 'slack',
+    logo: 'github',
     summary:
       'A concept redesign for reviewing large pull requests — risk-based collapsing, a diff outline view, and where AI summarization actually earns its keep.',
     caseStudy: {
