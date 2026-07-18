@@ -3,7 +3,15 @@ import { Link } from 'react-router-dom'
 import type { Project } from '../data/projects'
 import BrandLogo from './BrandLogo'
 
-export default function ProjectCard({ project }: { project: Project }) {
+type Edge = 'first' | 'middle' | 'last'
+
+const popoutPosition: Record<Edge, string> = {
+  first: 'left-0 right-auto',
+  middle: 'left-[-19%] right-auto',
+  last: 'left-auto right-0',
+}
+
+export default function ProjectCard({ project, edge = 'middle' }: { project: Project; edge?: Edge }) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const timerRef = useRef<ReturnType<typeof setTimeout>>()
 
@@ -46,7 +54,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
       {/* Netflix-style hover preview */}
       <div
-        className="pointer-events-none absolute top-0 left-[-19%] right-auto z-30 w-[138%] origin-top scale-[0.97] overflow-hidden rounded-md bg-[#181818] opacity-0 shadow-[0_20px_50px_rgba(0,0,0,.8)] transition-all duration-300 first:left-0 last:left-auto last:right-0 group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100"
+        className={`pointer-events-none absolute top-0 z-30 w-[138%] origin-top scale-[0.97] overflow-hidden rounded-md bg-[#181818] opacity-0 shadow-[0_20px_50px_rgba(0,0,0,.8)] transition-all duration-300 group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100 ${popoutPosition[edge]}`}
       >
         <div className="relative aspect-video overflow-hidden">
           <div className="absolute inset-0 bg-cover bg-center" style={{ background: project.poster }} />
@@ -63,8 +71,10 @@ export default function ProjectCard({ project }: { project: Project }) {
         </div>
 
         <div className="px-4 pb-4 pt-2.5">
-          <h3 className="mb-1.5 flex items-center gap-2 font-display text-xl tracking-[.5px]">
-            {project.logo && <BrandLogo logo={project.logo} className="h-5 w-5 shrink-0" />}
+          <div className="mb-1 text-[11px] font-medium text-[#8e8e93]">{project.tags[0]}</div>
+
+          <h3 className="mb-1.5 flex items-center gap-2 font-display text-[28px] leading-none tracking-[.5px]">
+            {project.logo && <BrandLogo logo={project.logo} className="h-6 w-6 shrink-0" />}
             {project.title}
           </h3>
 
@@ -74,8 +84,9 @@ export default function ProjectCard({ project }: { project: Project }) {
                 to={`/case-study/${project.id}`}
                 className="flex items-center gap-1.5 text-[13px] font-bold text-white hover:text-white/80"
               >
-                <svg viewBox="0 0 24 24" className="h-4 w-4 fill-white">
-                  <path d="M8 5v14l11-7z" />
+                <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-white" strokeWidth="2">
+                  <circle cx="12" cy="12" r="9.5" />
+                  <path d="M8 12.5l2.5 2.5L16 9.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
                 Case Study
               </Link>
@@ -85,7 +96,7 @@ export default function ProjectCard({ project }: { project: Project }) {
                   className="flex items-center gap-1.5 text-[13px] font-bold text-accent hover:text-accent/80"
                 >
                   <svg viewBox="0 0 24 24" className="h-4 w-4 fill-accent">
-                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z" />
+                    <path d="M8 5v14l11-7z" />
                   </svg>
                   Demo
                 </Link>
@@ -96,7 +107,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           <p className="mb-2.5 line-clamp-3 text-[13px] leading-relaxed text-[#d2d2d2]">{project.summary}</p>
 
           <div className="mb-1 flex flex-wrap gap-1.5">
-            {project.tags.map((tag) => (
+            {project.tags.slice(1).map((tag) => (
               <span
                 key={tag}
                 className="rounded border border-white/25 px-1.5 py-0.5 text-[10.5px] font-medium text-[#b3b3b3]"
@@ -111,24 +122,23 @@ export default function ProjectCard({ project }: { project: Project }) {
               <div className="mb-2 flex gap-4 border-b border-white/15 text-[11px] font-bold uppercase tracking-[1.5px]">
                 <span className="inline-block border-b-2 border-accent pb-2 text-white">Videos</span>
               </div>
-              <div className="flex gap-2 overflow-x-auto pb-0.5">
-                {project.videos!.map((v) => (
+              <div className="flex gap-3 overflow-x-auto pb-0.5">
+                {project.videos!.map((v, i) => (
                   <a
                     key={v.youtubeId}
                     href={`https://www.youtube.com/watch?v=${v.youtubeId}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="w-[110px] shrink-0"
+                    className="w-[136px] shrink-0"
                   >
-                    <div className="relative aspect-video overflow-hidden rounded bg-[#0b0b0b]">
+                    <div className="aspect-video overflow-hidden rounded bg-[#0b0b0b]">
                       <img src={v.thumbnail} alt={v.title} className="h-full w-full object-cover" />
-                      {v.duration && (
-                        <span className="absolute bottom-0.5 right-0.5 rounded bg-black/80 px-1 text-[9px] font-medium text-white">
-                          {v.duration}
-                        </span>
-                      )}
                     </div>
-                    <p className="mt-1 line-clamp-2 text-[10.5px] leading-tight text-[#d2d2d2]">{v.title}</p>
+                    <div className="mt-1 flex items-center justify-between text-[10px] text-[#8e8e93]">
+                      <span>Video {i + 1}</span>
+                      {v.duration && <span>{v.duration}</span>}
+                    </div>
+                    <p className="line-clamp-2 text-[11px] font-bold leading-tight text-white">{v.title}</p>
                   </a>
                 ))}
               </div>

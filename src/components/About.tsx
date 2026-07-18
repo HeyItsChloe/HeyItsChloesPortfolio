@@ -31,10 +31,10 @@ export default function About() {
           </div>
           <div>
             <h3 className="mb-3 text-sm font-bold uppercase tracking-[2px]">Education</h3>
-            <p className="text-[15px] leading-relaxed text-[#b3b3b3]">
-              Master of Business Administration, Pepperdine University. Bachelor of Arts in
-              Business with a minor in Psychology, St. John's University.
-            </p>
+            <ul className="list-disc space-y-2 pl-4 text-[15px] leading-relaxed text-[#b3b3b3]">
+              <li>Master of Business Administration, Pepperdine University</li>
+              <li>Bachelor of Arts in Business, minor in Psychology, St. John's University</li>
+            </ul>
           </div>
           <div>
             <h3 className="mb-3 text-sm font-bold uppercase tracking-[2px]">Toolkit</h3>

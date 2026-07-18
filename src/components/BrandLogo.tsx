@@ -39,14 +39,13 @@ export default function BrandLogo({ logo, className }: { logo: ProjectLogo; clas
     )
   }
 
-  // clover
+  // clover — four rounded leaves in quadrants, bottom-left leaf open like the Clover POS mark
   return (
-    <svg viewBox="0 0 24 24" className={className} aria-label="Clover">
-      <path
-        d="M12 12c0-2.8-2.2-5-5-5S2 9.2 2 12s2.2 5 5 5 5-2.2 5-5zm0 0c0-2.8 2.2-5 5-5s5 2.2 5 5-2.2 5-5 5-5-2.2-5-5zm0 0c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5zm0 0c2.8 0 5 2.2 5 5s-2.2 5-5 5-5-2.2-5-5 2.2-5 5-5z"
-        fill="#1AA64A"
-      />
-      <line x1="12" y1="15" x2="12" y2="22" stroke="#1AA64A" strokeWidth="1.5" strokeLinecap="round" />
+    <svg viewBox="0 0 400 400" className={className} aria-label="Clover">
+      <circle cx="110" cy="110" r="90" fill="#1AA64A" />
+      <circle cx="290" cy="110" r="90" fill="#1AA64A" />
+      <circle cx="290" cy="290" r="90" fill="#1AA64A" />
+      <path d="M196.9 266.7A90 90 0 1 1 133.3 202.9" fill="none" stroke="#1AA64A" strokeWidth="40" />
     </svg>
   )
 }
