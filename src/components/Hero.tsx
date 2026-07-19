@@ -25,10 +25,10 @@ export default function Hero() {
       />
 
       <div className="absolute inset-x-0 bottom-[18vh] z-[2] max-w-[680px] px-[4vw]">
-        <div className="mb-4 inline-flex items-center gap-2.5 text-sm font-semibold tracking-[6px] text-[#e5e5e5]">
+        {/* <div className="mb-4 inline-flex items-center gap-2.5 text-sm font-semibold tracking-[6px] text-[#e5e5e5]">
           <span className="font-display text-[28px] font-bold leading-none text-accent">C</span>
           <span>PORTFOLIO</span>
-        </div>
+        </div> */}
 
         <h1 className="mb-3.5 font-display text-[clamp(48px,6.4vw,96px)] leading-none tracking-[1px] [text-shadow:0_2px_20px_rgba(0,0,0,.6)]">
           Hey, It's Chloe :)
