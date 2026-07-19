@@ -56,7 +56,7 @@ export const projects: Project[] = [
     tags: ['2025', 'Productivity', 'SaaS'],
     logo: 'shopify',
     summary:
-      'A remote-work companion built for digital nomads. Balances deep-focus sprints with beach-worthy breaks so you can actually work from anywhere.',
+      'BusyBuddy is an all-in-one Shopify app ecosystem designed to simplify store management while increasing conversions through configurable bundles, discount engines, urgency features, merchandising tools, and customer engagement experiences; giving merchants the freedom to manage promotions, monitor performance, and grow their business from anywhere',
     links: [
       { label: 'App Listing', url: 'https://apps.shopify.com/busybuddy', primary: true },
       { label: 'Wiki', url: 'https://11thandorange.github.io/BusyBuddy_v2/' },
@@ -98,7 +98,7 @@ export const projects: Project[] = [
     tags: ['2024', 'Hospitality', 'POS'],
     logo: 'clover',
     summary:
-      'A point-of-sale companion for boutique cafes. Designed for a Balinese indoor-outdoor coffee shop, built to keep small teams running smoothly.',
+      'Built OrderMate, a modern order management platform that replaces handwritten workflows with customizable order tracking, scheduling, automated customer notifications, and powerful search tools—helping businesses all over the world process orders with greater speed, accuracy, and confidence.',
     links: [
       { label: 'App Listing', url: 'https://www.clover.com/appmarket/apps/WWTF1AKT87VJ8', primary: true },
       { label: 'Website', url: 'https://getordermate.com/', primary: true },

@@ -14,8 +14,9 @@ export default function Contact() {
           Let's build something.
         </h2>
         <p className="mb-10 max-w-[720px] text-lg leading-relaxed text-[#d2d2d2]">
-          Open to collaborations, freelance builds, and long walks with dogs. Send me a
-          message on LinkedIn — I actually read those.
+          I'm open to collaborations, consulting opportunities, and freelance projects where I
+          can help teams build, automate, and improve their technology. Connect with me on
+          LinkedIn — I'd be glad to hear about what you're working on.
         </p>
 
         <div className="grid max-w-[820px] grid-cols-1 gap-3.5 sm:grid-cols-2">
