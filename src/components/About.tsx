@@ -1,6 +1,11 @@
 import { useState } from 'react'
+import { createPortal } from 'react-dom'
 
 const toolkitCategories = [
+  {
+    heading: 'Programming Languages, Frameworks & Application Development',
+    body: 'JavaScript, TypeScript, C#, Python, Ruby on Rails, Node.js, .NET Framework, React, HTML, CSS, REST APIs, RESTful endpoints, JSON, GeoJSON, HTTP servers, microservices architecture, MUI (Material UI), Storybook, UI/UX design, responsive web development',
+  },
   {
     heading: 'Cloud, DevOps, Automation & Infrastructure',
     body: 'AWS, AWS Lambda, Azure, cloud deployments, self-hosted deployments, CI/CD pipeline design, release automation, mobile/iOS release automation, build automation, GitLab CI/CD workflows, workflow automation, AI agents, autonomous coding agents, LLM integrations, prompt engineering, bug triage automation, PR review automation, dependency upgrade automation',
@@ -95,34 +100,37 @@ export default function About() {
         </div>
       </div>
 
-      {showMoreToolkit && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-[4vw]"
-          onClick={() => setShowMoreToolkit(false)}
-        >
+      {showMoreToolkit &&
+        createPortal(
           <div
-            className="relative max-h-[80vh] w-full max-w-[640px] overflow-y-auto rounded-md bg-[#181818] p-6 shadow-[0_20px_50px_rgba(0,0,0,.8)] sm:p-8"
-            onClick={(e) => e.stopPropagation()}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 px-[4vw]"
+            onClick={() => setShowMoreToolkit(false)}
           >
-            <button
-              type="button"
-              onClick={() => setShowMoreToolkit(false)}
-              aria-label="Close"
-              className="absolute right-4 top-4 text-2xl leading-none text-[#8e8e93] hover:text-white"
+            <div
+              className="relative max-h-[80vh] w-full max-w-[640px] overflow-y-auto rounded-md bg-[#181818] p-6 shadow-[0_20px_50px_rgba(0,0,0,.8)] sm:p-8"
+              onClick={(e) => e.stopPropagation()}
             >
-              ×
-            </button>
-            <h3 className="mb-5 text-sm font-bold uppercase tracking-[2px] text-white">Toolkit</h3>
-            <ul className="space-y-5 text-[15px] leading-relaxed text-[#b3b3b3]">
-              {toolkitCategories.map((category) => (
-                <li key={category.heading}>
-                  <span className="font-bold text-white">{category.heading}:</span> {category.body}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      )}
+              <button
+                type="button"
+                onClick={() => setShowMoreToolkit(false)}
+                aria-label="Close"
+                className="absolute right-4 top-4 text-2xl leading-none text-[#8e8e93] hover:text-white"
+              >
+                ×
+              </button>
+              <h3 className="mb-1 text-sm font-bold uppercase tracking-[2px] text-white">Toolkit</h3>
+              <p className="mb-5 text-[15px] font-bold text-white">Technologies I have used:</p>
+              <ul className="space-y-5 text-[15px] leading-relaxed text-[#b3b3b3]">
+                {toolkitCategories.map((category) => (
+                  <li key={category.heading}>
+                    <span className="font-bold text-white">{category.heading}:</span> {category.body}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>,
+          document.body,
+        )}
     </section>
   )
 }
