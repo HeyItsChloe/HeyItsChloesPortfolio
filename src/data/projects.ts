@@ -287,10 +287,10 @@ export const recentlyAdded = [
   {
     label: 'Automations NPM Package',
     image: `${base}videos/images/recently_added/automations-pipeline.png`,
-    href: 'https://github.com/apps/pipeline-orchestrator-opps',
+    href: 'https://www.npmjs.com/package/@heyitschloe/pipeline-orchestrator',
   },
   {
-    label: 'Docs-Site Generator Automation',
+    label: 'Wiki Generator Automation',
     image: `${base}videos/images/recently_added/docs-site.png`,
     href: 'https://heyitschloe.github.io/auto-docs-site/',
   },
