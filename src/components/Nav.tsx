@@ -22,6 +22,11 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const scrollToId = (id: string) => (e: React.MouseEvent) => {
+    e.preventDefault()
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <header
       className="fixed inset-x-0 top-0 z-50 px-[4vw] py-[18px] transition-colors duration-300"
@@ -32,7 +37,11 @@ export default function Nav() {
       }}
     >
       <div className="mx-auto flex max-w-[1600px] items-center gap-9">
-        <a href="#home" className="whitespace-nowrap font-display text-[28px] font-bold tracking-[2px] text-accent">
+        <a
+          href="#home"
+          onClick={scrollToId('home')}
+          className="whitespace-nowrap font-display text-[28px] font-bold tracking-[2px] text-accent"
+        >
           CHLOE ARIBO
         </a>
         <nav className="flex gap-[22px] text-sm font-medium">
@@ -40,6 +49,7 @@ export default function Nav() {
             <a
               key={id}
               href={`#${id}`}
+              onClick={scrollToId(id)}
               className={`capitalize transition-colors ${
                 active === id ? 'font-bold text-white' : 'text-[#e5e5e5] hover:text-[#b3b3b3]'
               }`}

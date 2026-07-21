@@ -285,12 +285,12 @@ export const projects: Project[] = [
 export const recentlyAdded = [
   { label: 'Arcade', image: `${base}videos/images/recently_added/arcade.png`, to: '/arcade' },
   {
-    label: 'Automations Pipeline',
+    label: 'Automations NPM Package',
     image: `${base}videos/images/recently_added/automations-pipeline.png`,
     href: 'https://github.com/apps/pipeline-orchestrator-opps',
   },
   {
-    label: 'Docs-Site Automation Wiki',
+    label: 'Docs-Site Generator Automation',
     image: `${base}videos/images/recently_added/docs-site.png`,
     href: 'https://heyitschloe.github.io/auto-docs-site/',
   },
